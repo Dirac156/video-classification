@@ -1,3 +1,27 @@
-<h1>
-uploaded files    
-</h1
+<!doctype html>
+<head><title>Video</title></head>
+<body>
+    <h1>{{video}}</h1>
+    <form action="/predict/{{video}}" id="query" method="post" enctype="multipart/form-data">
+        <div class="">
+            <input type="text" class="textbox-input" name="query" required />
+            <input type="text" name="filename" value={{video}} hidden />
+            <p class="textbox-label">search query</p>
+        </div>
+        <button id="search-btn" name="btnsearch" type="submit">search</button>
+    </form>
+  <div>
+    {% if class_name %}
+    <h2>searched query</h2>
+    <h3>{{class_name}}</h3>
+    <img src={{prediction}} width="100px" height="100px" alt="frame"/>
+    {% endif %}
+  </div>
+  <div style="margin-bottom:20px;">
+    {% if images %}
+    {% for image in images %}
+        <img src="{{ url_for('static', filename=image) }}" width="100px" height="100px" alt="frame"/>
+    {% endfor %}
+    {% endif %}
+  </div>
+</body>

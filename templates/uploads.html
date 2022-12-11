@@ -1,9 +1,10 @@
 <!doctype html>
 <title>Hello from Flask</title>
+<h1>Search for video parts</h1>
 {% if videos %}
 {% for video in videos %}
-  <h1><a href="/upload/{{video}}">{{ video }}<a></h1>
+  <h1>click to search for parts: <a href="/upload/{{video}}">{{ video }}<a></h1>
 {% endfor %}
 {% else %}
-  <h1>Hello, World!</h1>
+  <h1>No video uploaded!</h1>
 {% endif %}
